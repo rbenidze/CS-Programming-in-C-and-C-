@@ -1,0 +1,73 @@
+/*
+   CH-230-A
+   a7_p4.c
+   Revaz Benidze
+   rbenidze@jacobs-university.de
+*/
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+void upper(char* string)
+{
+    char str[50];
+    //Copying the string to not use the original one//
+    strcpy(str, string);
+    int idx;
+    for (idx = 0; str[idx]; idx++)
+    {
+        if ((str[idx] >= 97) && (str[idx] <= 122))
+            printf("%c", str[idx] - 32);
+        else
+            printf("%c", str[idx]);
+    }
+}
+//Turnsthe letters to lowercase//
+void lower(char* string)
+{
+    char str[50];
+    //Copying the string to not use the original one//
+    strcpy(str, string);
+    int idx;
+    for (idx = 0; str[idx]; idx++)
+    {
+        if ((str[idx] >= 65) && (str[idx] <= 90))
+            printf("%c", str[idx] + 32);
+        else
+            printf("%c", str[idx]);
+    }
+}
+void upper_lower(char* string)
+{
+    char str[50];
+    strcpy(str, string);
+    int idx;
+    for (idx = 0; str[idx]; idx++)
+    {
+        if ((str[idx] >= 97) && (str[idx] <= 122))
+            printf("%c", str[idx] - 32);
+        else if ((str[idx] >= 65) && (str[idx] <= 90))
+            printf("%c", str[idx] + 32);
+        else
+            printf("%c", str[idx]);
+    }
+}
+//quits program//
+void quit(char* str)
+{
+    exit(1);
+}
+void(*func_poin[4]) (char* str)
+= { upper, lower, upper_lower, quit };
+int main() {
+    char string[50];
+    int x;
+    //gets input//
+    fgets(string, sizeof(string), stdin);
+    scanf("%d", &x);
+    while (1)
+    {
+        func_poin[x- 1](string);
+        scanf("%d", &x);
+    }
+    return 0;
+}

@@ -1,0 +1,32 @@
+/*
+CH-230-A
+a7 p1.[c or cpp or h]
+Revaz Bendize
+rbenidze@jacobs-university.de
+*/
+ 
+ 
+ 
+#include <stdio.h>
+#include <stdlib.h>
+ 
+ 
+#ifdef LINK
+ 
+//declare struct list//
+struct list {
+    int info;
+    struct list* next;
+};
+//declare link list which is to be built and value to be insetred//
+struct list* my_list = NULL;
+char c;
+int val;
+ 
+struct list* insert_front(struct list* my_list, int value);
+struct list* insert_back(struct list* my_list, int value);
+struct list* remove_first(struct list* my_list);
+void print_list(struct list* my_list);
+void free_list(struct list* my_list);
+ 
+#endif

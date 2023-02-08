@@ -1,0 +1,78 @@
+/*
+CH-230-A
+a7 p1.[c or cpp or h]
+Revaz Bendize
+rbenidze@jacobs-university.de
+ 
+*/
+
+#ifdef LINK
+ 
+struct list* insert_front(struct list* my_list, int value) {
+    struct list* el1;
+    //dynamically allocate memory//
+    el1 = (struct list*)malloc(sizeof(struct list));
+    if (el1 == NULL)
+        return my_list;
+    el1->info = value;
+    el1->next = my_list;
+ 
+    return el1;
+}
+ 
+//function for inserting an element in the back//
+struct list* insert_back(struct list* my_list, int value) {
+    struct list* cursor;
+    cursor = my_list;
+ 
+    struct list* el2;
+    //dynamically allocate memory//
+    el2 = (struct list*)malloc(sizeof(struct list));
+    if (el2 == NULL)
+        return my_list;
+ 
+    //initialization
+    el2->info = value;
+    el2->next = NULL;
+ 
+    if (my_list == NULL)
+        return el2;
+ 
+    //go to the end of the list with cursor//
+    while (cursor->next != NULL)
+        cursor = cursor->next;
+    cursor->next = el2;
+ 
+    return my_list;
+}
+ 
+//function for removing the first element of the list//
+struct list* remove_first(struct list* my_list) {
+    if (my_list == NULL)
+        return my_list;
+    my_list = my_list->next;
+        return my_list;
+}
+ 
+// function for printing the list//
+void print_list(struct list* my_list) {
+    struct list* temporary;
+    temporary = my_list;
+    while (temporary != NULL) {
+        printf("%d ", temporary->info);
+        temporary = temporary->next;
+    }
+    printf("\n");
+}
+ 
+//function to free the dynamically allocated memory//
+void free_list(struct list* my_list) {
+    struct list* nextel;
+    while (nextel != NULL) {
+        nextel = my_list->next;
+        free(my_list);
+        my_list = nextel;
+    }
+}
+ 
+#endif
