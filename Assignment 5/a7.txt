@@ -1,0 +1,40 @@
+/*
+    CH-230-A
+    a5_p7.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+ 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+ 
+int main() {
+    //declare strings//
+    char str1[100];
+    char str2[100];
+    fgets(str1, sizeof(str1), stdin); //strings input//
+    fgets(str2, sizeof(str2), stdin);
+    
+    str1[strlen(str1) - 1] = '\0';
+    str2[strlen(str2) - 1] = '\0';
+ 
+    //declare and initialize lengths//
+    int l1 = strlen(str1);
+    int l2 = strlen(str2);
+ 
+    char* str3; // dynamically allocate exact size for str3//
+    str3 = (char*)malloc(sizeof(char) * (l1 + l2));
+ 
+    if (str3 == NULL)
+        exit(1);
+ 
+    strcat(str1, str2);
+    str3 = str1;
+ 
+    // prints result//
+    printf("Result of concatenation: %s\n", str3);
+ 
+    return 0;
+}

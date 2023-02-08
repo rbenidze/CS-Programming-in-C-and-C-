@@ -1,0 +1,34 @@
+/*
+    CH-230-A
+    a5_p2.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+ 
+void divby5(float arr[], int size) {
+    
+    for (int n = 0; n < size; n++)
+        arr[n] /= 5; //dividing elements by 5//
+}
+ 
+ 
+int main() {
+    float arr[6] = { 5.5, 6.5, 7.75, 8.0, 9.6, 10.36 };
+    //declearing given floats//
+    printf("Before:\n"); //print elements before modifing//
+    for (int n = 0; n < 6; n++)
+    printf("%.3f ", arr[n]);
+    printf("\n");
+ 
+    divby5(arr, 6);
+    // printing every modified element after function call
+    printf("After:\n");
+    for (int n = 0; n < 6; n++)
+        // %.3f in order to satisfy testcases
+    printf("%.3f ", arr[n]);
+    printf("\n");
+ 
+    return 0;
+}

@@ -1,0 +1,45 @@
+/*
+    CH-230-A
+    a5_p4.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+#include <stdlib.h>
+ 
+ 
+void divby5(float arr[], int size) {
+    for (int m = 0; m < size; m++)
+        arr[m] /= 5;
+    // divide elements by 5//
+}
+ 
+ 
+int main() {
+    int n, m; 
+    scanf("%d", &n);//input n//
+    
+    float* arr;
+    arr = (float*)malloc(sizeof(float) * n);
+    if (arr == NULL)
+    exit(1);
+    for (m = 0; m < n; m++) //inputing elements//
+    scanf("%f", &arr[m]);
+ 
+    printf("Before:\n");
+    //prints all element before modifying them//
+    for (m = 0; m < n; m++)
+    printf("%f ", arr[m]);
+    printf("\n");
+ 
+    divby5(arr, n);
+    //prints all modified element after function call//
+    printf("After:\n");
+    for (m = 0; m < n; m++)
+    printf("%f ", arr[m]);
+    printf("\n");
+    free(arr);
+ 
+    return 0;
+}

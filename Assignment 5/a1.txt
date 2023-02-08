@@ -1,0 +1,39 @@
+/*
+CH-230-A
+a5_p1.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+ 
+#include <stdio.h>
+ 
+void triangle(int n, char ch) {
+    int a = n;
+    for (int i = 0; i < n; i++) {
+    //types the character b times on a line//
+    for (int b = a; b > 0; b--)
+    printf("%c", ch);
+    printf("\n");
+    a--; 
+    //on every next line the character gets reduced 1 time//
+      
+    }
+}
+ 
+ 
+ 
+int main() {
+    int n;
+    char ch;
+ 
+    //takes input from the keyboard//
+    scanf("%d", &n);
+    getchar();
+    scanf("%c", &ch);
+ 
+    //function call//
+    triangle(n, ch);
+ 
+    return 0;
+}

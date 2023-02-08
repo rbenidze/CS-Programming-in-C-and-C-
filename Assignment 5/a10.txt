@@ -1,0 +1,20 @@
+/*
+    CH-230-A
+    a5_p10.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+void recurs(int n) {
+    if (n == 0)//if n=0 function stops//
+    return;
+    printf("%d\n", n); 
+    recurs(n - 1);//keep calling a function unti n=0//
+}
+int main() {
+    int n;
+    scanf("%d", &n);
+    recurs(n);
+    return 0;
+}

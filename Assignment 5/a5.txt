@@ -1,0 +1,102 @@
+/*
+    CH-230-A
+    a5_p5.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+ 
+#include <stdio.h>
+#include <stdlib.h>
+ 
+ 
+double scalar(double* v, double* w, int size) {
+    double result = 0;
+    for (int i = 0; i < size; i++) //computes a result//
+        result += v[i] * w[i];
+ 
+    return result;
+}
+ 
+void func(double* v, double* w, int size) {
+    int i = 0;
+    
+    // initialize a components for 1 vector//
+    double mi1 = v[i];
+    int mi1res = 0;
+    double mx1 = v[i];
+    int mx1res = 0;
+ 
+    double mi2 = w[i]; //components of 2 vector//
+    int mi2res = 0;
+    double mx2 = w[i];
+    int mx2res = 0;
+ 
+    //checks elements of vectors and assigns minimum values and positions//
+    
+    for (i = 1; i < size; i++) {
+        if (mi1 > v[i]) {
+            mi1 = v[i];
+            mi1res = i;
+        }
+        if (mi2 > w[i]) {
+            mi2 = w[i];
+            mi2res = i;
+        }
+    }
+ 
+    for (i = 1; i < size; i++) { //maximum values and  positions//
+        if (mx1 < v[i]) {
+            mx1 = v[i];
+            mx1res = i;
+        }
+        if (mx2 < w[i]) {
+            mx2 = w[i];
+            mx2res = i;
+        }
+    }
+ 
+    // prints results//
+    printf("The smallest = %lf\n", mi1);
+    printf("Position of smallest = %d\n", mi1res);
+    printf("The largest = %lf\n", mx1);
+    printf("Position of largest = %d\n", mx1res);
+    printf("The smallest = %lf\n", mi2);
+    printf("Position of smallest = %d\n", mi2res);
+    printf("The largest = %lf\n", mx2);
+    printf("Position of largest = %d\n", mx2res);
+ 
+} 
+ 
+ 
+int main() {
+    
+    double* v, * w;
+    int i, n;
+    scanf("%d", &n); 
+ 
+    //dynamically allocating memory for vectors//
+    v = (double*)malloc(sizeof(double) * n);
+    w = (double*)malloc(sizeof(double) * n);
+ 
+    if (v == NULL)
+        exit(1);
+    if (w == NULL)
+        exit(1);
+ 
+    //input of elements in vectors//
+    for (i = 0; i < n; i++)
+        scanf("%lf", &v[i]);
+    for (i = 0; i < n; i++)
+        scanf("%lf", &w[i]);
+ 
+    
+    printf("Scalar product=%lf\n", scalar(v, w, n));
+    func(v, w, n);
+ 
+    
+    free(v);
+    free(w);
+ 
+    return 0;
+}

@@ -1,0 +1,33 @@
+/*
+    CH-230-A
+    a5_p3.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+ 
+#include <stdio.h>
+#include <string.h>
+ 
+int count_lower(char* str) {
+    int m = 0;
+ 
+    //sum up increases when the lowercase character appears//
+    for (int n = 0; n < strlen(str); n++)
+        if (*(str + n) >= 97 && *(str + n) <= 122)
+        m++;
+ 
+    return m;
+}
+ 
+int main() {
+    char str[50]; //declare string//
+    fgets(str, sizeof(str), stdin); //string input//
+    //till the first and only element is '\n' keep printing and reading//
+    while (str[0] != '\n' && strlen(str) != 1) {
+    printf("number of lowercase characters:%d\n", count_lower(str));
+    fgets(str, sizeof(str), stdin);
+    }
+ 
+    return 0;
+}

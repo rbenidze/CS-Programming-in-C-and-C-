@@ -1,0 +1,73 @@
+/*
+    CH-230-A
+    a5_p9.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+#include <stdlib.h>
+ 
+void input(int*** arr, int x, int y, int z) {
+    //input of every element of 3D array//
+    for (int i = 0; i < x; i++)
+    for (int n = 0; n < y; n++)
+    for (int m = 0; m < z; m++)
+    scanf("%d", &arr[i][n][m]);
+}
+ 
+void output(int*** arr, int x, int y, int z) {
+    //output of every element in 2D sections of the array//
+    for (int k = 0; k < z; k++) {
+    printf("Section %d:\n", k + 1);
+    for (int i = 0; i < x; i++) {
+    for (int j = 0; j < y; j++)
+    printf("%d ", arr[i][j][k]);
+    printf("\n");
+        }
+    }
+}
+ 
+int main() {
+    int x;
+    int y;
+    int z; 
+    scanf("%d", &x);
+    scanf("%d", &y);
+    scanf("%d", &z);
+ 
+    //declare and dynamically allocate x size memory//
+    int*** arr;
+    arr = (int***)malloc(sizeof(int) * x);
+ 
+    if (arr == NULL)
+        exit(1);
+ 
+    //dynamically allocatie y size memory in allocated x//
+    for (int i = 0; i < x; i++) {
+        arr[i] = (int**)malloc(sizeof(int) * y);
+ 
+        if (arr[i] == NULL)
+            exit(1);
+ 
+        //dynamically allocate z size memory for y in x//
+        for (int j = 0; j < y; j++) {
+            arr[i][j] = (int*)malloc(sizeof(int) * z);
+ 
+            if (arr[i][j] == NULL)
+                exit(1);
+        }
+    }
+ 
+    input(arr, x, y, z); //calls functions//
+    output(arr, x, y, z);
+ 
+    for (int i = 0; i < x; i++) { //frees memory//
+    for (int j = 0; j < y; j++)
+    free(arr[i][j]);
+    free(arr[i]);
+    }
+    free(arr);
+ 
+    return 0;
+}
