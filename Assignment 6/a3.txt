@@ -1,0 +1,52 @@
+/*
+    CH-230-A
+    a6_p3.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+ 
+#include <stdio.h>
+ 
+// declaring variables globally for macros
+int min;
+int max;
+float mid;
+ 
+//determine the min of the values//
+#define MIN(a, b, c) { if (a < b && a < c)      \
+                           min = a;             \
+                       else if (b < a && b < c) \
+                           min = b;             \
+                       else                     \
+                           min = c; }
+ 
+//determine the max of the values//
+#define MAX(a, b, c) { if (a > b && a > c)      \
+                           max = a;             \
+                       else if (b > a && b > c) \
+                           max = b;             \
+                       else                     \
+                           max = c; }
+ 
+//calculate mid values//
+#define MID_RANGE(min, max) mid = (min + max) / 2.0;
+ 
+int main() {
+    int a;
+    int b;
+    int c;
+    scanf("%d", &a);
+    scanf("%d", &b);
+    scanf("%d", &c);
+ 
+    //use macros//
+    MIN(a, b, c);
+    MAX(a, b, c);
+    MID_RANGE(min, max);
+ 
+    //prints result//
+    printf("The mid-range is: %.6f\n", mid);
+ 
+    return 0;
+}

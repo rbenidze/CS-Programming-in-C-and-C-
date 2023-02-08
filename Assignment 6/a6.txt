@@ -1,0 +1,26 @@
+/*
+    CH-230-A
+    a6_p6.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+int main() {
+    unsigned char c;
+    scanf("%c", &c);
+ 
+    // prints results//
+    printf("The decimal representation is: %d\n", c);
+    printf("The binary representation is: ");
+ 
+    //we need loop 8 times//
+    for (int i = 0; i < 8; i++)
+    {
+        //mask off the highest order bit with each iteration//
+        printf("%d", !!((c << i) & 128));
+    }
+ 
+    printf("\n");
+    return 0;
+}

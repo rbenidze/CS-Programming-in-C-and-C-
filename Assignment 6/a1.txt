@@ -1,0 +1,37 @@
+/*
+    CH-230-A
+    a6_p1.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+#include <stdio.h>
+#define SWAP(x, y, type){\
+    type *xx = &x;\
+    type *yy = &y;\
+    type tmp = x;\
+    *xx = y;\
+    *yy = tmp;\
+}
+int main() {
+    //input integers//
+    int a;
+    int b;
+    scanf("%d", &a);
+    scanf("%d", &b);
+    
+    //input doubles//
+    double n;
+    double m;
+    scanf("%lf", &n);
+    scanf("%lf", &m);
+ 
+    //swaping values//
+    SWAP(a, b, int);
+    SWAP(n, m, double);
+ 
+    //prints results//
+    printf("After swapping:\n%d\n%d", a, b);
+    printf("\n%.6lf\n%.6lf\n", n, m);
+ 
+    return 0;
+}

@@ -1,0 +1,138 @@
+/*
+    CH-230-A
+    a6_p8.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+#include <stdlib.h>
+ 
+//the structure for our list//
+struct list
+{
+    int info;
+    struct list* next;
+};
+ 
+//create global variable MyList//
+struct list* MyList = NULL;
+ 
+void insertEnd(int val)
+{
+    //allocate memory//
+    struct list* newList = (struct list*)malloc(sizeof(struct list));
+    if (newList == NULL)
+    {
+        return;
+    }
+ 
+    //initialize the list//
+    newList->info = val;
+    newList->next = NULL;
+    if (MyList == NULL)
+    {
+        MyList = newList;
+        return;
+    }
+ 
+    struct list* last = MyList;
+ 
+    while (last->next != NULL)
+    {
+        last = last->next;
+    }
+ 
+    //add a value to the linked list//
+    last->next = newList;
+}
+ 
+void insertStart(int val)
+{
+    //allocate memory//
+    struct list* newList = (struct list*)malloc(sizeof(struct list));
+    if (newList == NULL)
+    {
+        return;
+    }
+ 
+    //initialize the list//
+    newList->info = val;
+    newList->next = MyList;
+ 
+    MyList = newList;
+}
+ 
+void deleteStart()
+{
+    //do nothing if the list is empty//
+    if (MyList == NULL)
+    {
+        return;
+    }
+ 
+    struct list* listPtr = MyList;
+    MyList = MyList->next;
+ 
+    //free the memory//
+    free(listPtr);
+}
+ 
+void printList()
+{
+//set listPtr to MyList then use listPtr to print all values within the list//
+    struct list* listPtr = MyList;
+ 
+    while (listPtr != NULL)
+    {
+        printf("%d ", listPtr->info);
+        listPtr = listPtr->next;
+    }
+ 
+    printf("\n");
+}
+void freeList()
+{
+    struct list* listPtr = NULL;
+ 
+    while (MyList != NULL)
+    {
+        listPtr = MyList->next;
+        free(MyList);
+        MyList = listPtr;
+    }
+}
+int main()
+{
+    //use a while loop to make the program run//
+    while (1)
+    {
+        char input;
+        scanf(" %c", &input);
+ 
+        switch (input)
+        {
+        case 'a':;
+            int inputEnd = 0;
+            scanf("%d", &inputEnd);
+            insertEnd(inputEnd);
+            break;
+        case 'b':;
+            int inputStart = 0;
+            scanf("%d", &inputStart);
+            insertStart(inputStart);
+            break;
+        case 'r':
+            deleteStart();
+            break;
+        case 'p':
+            printList();
+            break;
+        case 'q':
+            freeList();
+            return 0;
+        default:
+            break;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+/*
+    CH-230-A
+    a6_p5.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+ 
+int main() {
+    unsigned char c;
+    scanf("%c", &c);
+ 
+    //printis results//
+    printf("The decimal representation is: %d\n", c);
+    printf("The backwards binary representation is: ");
+ 
+    //b is the last bit of c after each shift//
+    int b;
+    //looped until c is shifted to 0//
+    while (c)
+    {
+        b = c & 1;
+        c = c >> 1;
+        printf("%d", b);
+    }
+    printf("\n");
+    return 0;
+}

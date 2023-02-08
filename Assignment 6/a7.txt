@@ -1,0 +1,61 @@
+/*
+    CH-230-A
+    a6_p7.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+void set3bits(unsigned char* p, int a, int m, int n) {
+    *p |= 1 << a;
+    *p |= 1 << m;
+    *p |= 1 << n;
+}
+ 
+ 
+int main() {
+    // declare and input char//
+    unsigned char z, p;
+    scanf("%c", &z);
+    p = z;
+ 
+    // declare and input bits//
+    int a, m, n;
+    scanf("%d", &a);
+    scanf("%d", &m);
+    scanf("%d", &n);
+ 
+    printf("The decimal representation is: %d\n", z);
+    printf("The binary representation is: ");
+ 
+    //print in binary//
+    int k, i = 0;
+    while (i < 8) { 
+        k = z & 128;
+        if (k == 128)
+            k = 1;
+        z = z << 1;
+        // shift to right to get the bits on the first pos//
+        printf("%d", k);
+        i++;
+    }
+    printf("\n");
+ 
+    //calls function//
+    set3bits(&p, a, m, n);
+ 
+    printf("After setting the bits: ");
+    //prins the modified version//
+    i = 0;
+    while (i < 8) {
+        k = p & 128;
+        if (k == 128)
+            k = 1;
+        p = p << 1;
+        printf("%d", k);
+        i++;
+    }
+    printf("\n");
+ 
+    return 0;
+}

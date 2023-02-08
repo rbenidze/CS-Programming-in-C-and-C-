@@ -1,0 +1,22 @@
+/*
+    CH-230-A
+    a6_p2.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+ 
+//x is 1 or 0 depending on c//
+#define BIT(x, c) x = c & 1;
+int main() {
+    unsigned char c;
+    scanf("%c", &c);
+    int a; //a represent last bit//
+    printf("The decimal representation is: %d\n", c);
+    BIT(a, c);
+    //prints result//
+    printf("The least significant bit is: %d\n", a);
+ 
+    return 0;
+}
