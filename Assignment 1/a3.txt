@@ -1,0 +1,16 @@
+/*
+CH-230-A
+homework3.c
+Revaz Benidze 
+rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+int main() {
+float result; /* The result of the division */
+int a = 5;
+float b = 13.5;
+result = a / b;
+printf("The result is %f\n", result); // the resoult was the float so I change it from %d to %f//
+return 0;
+}

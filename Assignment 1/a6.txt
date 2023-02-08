@@ -1,0 +1,14 @@
+/*
+CH-230-A
+domework6.c
+Revaz Benidze 
+rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+int main() {
+char c='F';
+printf("%c\n", (char)((int)c+3));//get ascii code of f and add 3 to get ascii code of i and turn ascii back into char
+printf("%d\n", (int)c+3); //print ascii code of i   //
+return 0;
+}

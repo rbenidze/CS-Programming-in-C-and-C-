@@ -1,0 +1,20 @@
+/*
+CH-230-A
+homework5.c
+Revaz Benidze 
+rbenidze@jacobs-university.de
+the issue was that 
+*/
+ 
+#include <stdio.h>
+int main() {
+int x=2138;
+float y=-52.35892;
+char z='G';
+double u=61.295339687;
+printf("x=     %d\n", x);
+printf("y=  %f\n", y);
+printf("z=%c\n", z);
+printf("u=%fl\n", u);
+return 0; //I made space so I could move x and y //
+}
