@@ -1,0 +1,27 @@
+/*
+CH-230-A
+a2p6.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+ 
+int main(){
+    double x, y;
+    scanf("%lf", &x); //create doubles//
+    scanf("%lf", &y);
+    double *ptr_one;//create pointers//
+    double *ptr_two;
+    double *ptr_three;
+    *ptr_one= &x;//give each pointer a value//
+    *ptr_two= &x;
+    *ptr_three= &y;
+    printf("%p", ptr_one) //print pointer adress//
+    printf("%p", ptr_two);
+    printf("%p", ptr_three);
+    return0;
+ 
+ 
+ 
+}

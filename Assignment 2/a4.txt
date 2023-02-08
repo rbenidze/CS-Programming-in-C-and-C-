@@ -1,0 +1,25 @@
+/*
+CH-230-A
+a2p4.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+ 
+#include <stdio.h>
+ 
+int main(){
+   float a; // creating floats//
+   float b;
+   float h;
+   scanf("%f", &a);//using input//
+   scanf("%f", &b);
+   scanf("%f", &h);
+   printf("square area=%f\n", a*a); //compute square area//
+   printf("rectangle area=%f\n", a*b); // computer rectangle area//
+   printf("triangle area=%f\n", a*h/2); //  compute triangle area//
+   printf("trapezoid area=%f\n", h*(a+b)/2); // computer trapezoid area//
+   return 0;
+ 
+ 
+}
