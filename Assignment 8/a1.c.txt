@@ -1,0 +1,37 @@
+/*
+CH-230-A
+a7_p7.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include "stack.h"
+ 
+// Pushing the number in the stack //
+void push(int num, Stack* stc)
+{
+    stc->array[stc->count++] = num;
+}
+int pop(Stack* stc)
+{
+    int num;
+    num = stc->array[(stc->count) - 1];
+    stc->array[stc->count - 1] = 0;
+    (stc->count)--;
+    return num;
+}
+int isEmpty(Stack* stc)
+{
+    return stc->count == 0;
+}
+//Empty the stack by popping numbers//
+void empty(Stack* stc)
+{
+    printf("Emptying Stack ");
+    while (!isEmpty(stc))
+    {
+        printf("%d ", pop(stc));
+    }
+    printf("\n");
+}

@@ -1,0 +1,16 @@
+#ifndef STACKH
+#define STACKH
+ 
+typedef struct stack {
+    unsigned int count;
+    int array[12]; 
+} Stack;
+ 
+//declare function//
+void push(int, Stack*);
+int pop(Stack*);
+int isEmpty(Stack*);
+void empty(Stack*);
+void conv_binary(Stack*, unsigned int);
+ 
+#endif

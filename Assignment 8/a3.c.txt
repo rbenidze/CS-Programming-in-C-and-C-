@@ -1,0 +1,116 @@
+#include <stdio.h>
+#include <stdlib.h>
+ 
+#include "queue.h"
+ 
+//function definitions//
+ 
+//Initialize queue //
+void initialize_queue(Queue* pq)
+{
+    pq->front = pq->rear = NULL;
+    pq->items = 0;
+}
+//testing if queue is full//
+int queue_is_full(const Queue* pq)
+{
+    return pq->items == MAXQUEUE;
+}
+int queue_is_empty(const Queue* pq)
+{
+    return pq->items == 0;
+}
+int queue_item_count(const Queue* pq)
+{
+    return pq->items;
+}
+//declare function//
+static void item_to_node(Item item, Node* ptr_node);
+//adding a new element to the queue//
+int enqueue(Item item, Queue* pq)
+{
+    if (queue_is_full(pq) == 1)
+    {
+        return -1;
+    }
+ 
+    Node* new1;
+    new1 = (Node*)malloc(sizeof(new1));
+    if (!new1)
+    {
+        exit(1);
+    }
+    //copy item//
+    item_to_node(item, new1);
+    new1->next = NULL;
+    if (queue_is_empty(pq) == 1)
+    {
+        pq->front = new1;
+    }
+    else
+        (pq->rear)->next = new1;
+    pq->rear = new1;
+    pq->items++;
+ 
+    return 0;
+}
+//declare function//
+static void copy_item(Node* ptr_node, Item* ptr_item); 
+ 
+//Removing an element from the queue//
+int dequeue(Item* pitem, Queue* pq)
+{
+    if (queue_is_empty(pq) == 1)
+    {
+        return -1;
+    }
+ 
+    Node* new1;
+    new1 = (Node*)malloc(sizeof(new1));
+    if (!new1)
+    {
+        exit(1);
+    }
+ 
+    copy_item(pq->front, pitem); 
+    new1 = pq->front;
+    pq->front = (pq->front)->next;
+    //free the memory//
+    free(new1); 
+ 
+    if (pq->items == 1)
+    {
+        pq->rear = NULL;
+    }
+    
+    pq->items--;
+    return 0;
+}
+//Emptying the queue//
+void empty_queue(Queue* pq)
+{
+    Item dummy;
+    while (!queue_is_empty(pq)) {
+        dequeue(&dummy, pq);
+    }
+}
+//copy item to the node//
+static void item_to_node(Item item, Node* ptr_node)
+{
+    ptr_node->item = item;
+}
+static void copy_item(Node* ptr_node, Item* ptr_item)
+{
+    *ptr_item = ptr_node->item;
+}
+//Printing the queue//
+void qprint(Queue* pq)
+{
+    Node* nodenew = pq->front;
+    while (nodenew != NULL)
+    {
+        printf("%d ", nodenew->item);
+        nodenew = nodenew->next;
+    }
+    printf("\n");
+}

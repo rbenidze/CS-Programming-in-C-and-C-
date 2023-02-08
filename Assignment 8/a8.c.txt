@@ -1,0 +1,48 @@
+/*
+   CH-230-A
+   a8_p8.c
+   Revaz Benidze
+   rbenidze@jacobs-university.de
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+ 
+int main() {
+    FILE* fptr;
+    int counting = 0;
+    char name[30], a;
+ 
+    //getts input//
+    fgets(name, sizeof(name), stdin);
+    name[strlen(name) - 1] = '\0';
+ 
+    fptr = fopen(name, "r");
+    if (fptr == NULL)
+    {
+        fprintf(stderr, "Exit!\n");
+        exit(1);
+    }
+//the counting variable increases for the characters//
+    while ((a = fgetc(fptr)) != EOF)
+    {
+        if (a == ' ' || a == ',' || a == '?' || a == '!' || a == '.' || a == '\t' || a == '\r' || a == '\n')
+        {
+            while ((a = fgetc(fptr)) != EOF)
+            {
+                if (a == ' ' || a == ',' || a == '?' || a == '!' || a == '.' || a == '\t' || a == '\r' || a == '\n')
+                {
+                    continue;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            counting++;
+        }
+    }
+    printf("The file contains %d words.\n", counting);
+    fclose(fptr);
+    return 0;
+}

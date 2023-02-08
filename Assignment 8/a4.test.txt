@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "stack.h"
+ 
+int main() {
+    //gets input//
+    unsigned int n;
+    scanf("%d", &n);
+    Stack stc;
+    stc.count = 0;
+ 
+    conv_binary(&stc, n);
+    //printi the binary representation//
+    printf("The binary representation of %d is ", n);
+    while (stc.count > 0)
+    {
+        printf("%d", pop(&stc));
+    }
+    printf(".\n");
+    return 0;
+}

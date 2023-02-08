@@ -1,0 +1,53 @@
+/*
+CH-230-A
+a8_p4.c 
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include "stack.h"
+//push number on track//
+void push(int num, Stack* stc)
+{
+    stc->array[stc->count++] = num;
+}
+ 
+//popping the last number out of the stack//
+int pop(Stack* stc)
+{
+    int num;
+    num = stc->array[(stc->count) - 1];
+    stc->array[stc->count - 1] = 0;
+    (stc->count)--;
+    return num;
+}
+ 
+//if the stack is empty//
+int isEmpty(Stack* stc)
+{
+    return stc->count == 0;
+}
+//empty the stack by popping one number after the other //
+void empty(Stack* stc)
+{
+    printf("Emptying Stack ");
+    while (!isEmpty(stc))
+    {
+        printf("%d ", pop(stc));
+    }
+    printf("\n");
+}
+//conver numbers into binary//
+void conv_binary(Stack* stc, unsigned int num)
+{
+    int idx = 0;
+    unsigned int bin_array[1000];
+    while (num > 0)
+    {
+        bin_array[idx] = num % 2;
+        push(bin_array[idx], stc);
+        num /= 2;
+        idx++;
+    }
+}

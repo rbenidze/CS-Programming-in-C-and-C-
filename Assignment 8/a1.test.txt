@@ -1,0 +1,58 @@
+/*
+CH-230-A
+a7_p7.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+#include <stdlib.h>
+#include "stack.h"
+ 
+int main() {
+    int num, i = 1;
+    char c;
+    Stack stc;
+    stc.count = 0;
+    while (((c = getchar()) != EOF) && (i == 1))
+    {
+        //if the character is entered it is put into the stack//
+        switch (c)
+        {
+        case 's':
+            if (stc.count < 12)
+            {
+                scanf("%d", &num);
+                getchar();
+                push(num, &stc);
+                printf("Pushing %d\n", num);
+            }
+            else
+            {
+                printf("Pushing Stack Overflow\n");
+            }
+            break;
+//number is popped out if character is entered//
+        case 'p':
+            if (stc.count > 0)
+            {
+                printf("Popping %d\n", pop(&stc));
+            }
+            else
+            {
+                printf("Popping Stack Underflow\n");
+            }
+            break;
+ //stack will be emptied the following character is entered//
+        case 'e':
+            empty(&stc);
+            break;
+//program stops if the character is entered//
+        case 'q':
+            printf("Quit\n");
+            i = 0;
+            break;
+        }
+    }
+    return 0;
+}
