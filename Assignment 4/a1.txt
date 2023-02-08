@@ -1,0 +1,28 @@
+/*
+CH-230-A
+a4 p1.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+#include <math.h>
+ 
+int main() {
+    float nrad, mrad, step; 
+    float x;
+    scanf("%f", &nrad); //inputs float as minimum rad//
+    scanf("%f", &mrad); //inputs float as maximum rad//
+    scanf("%f", &step); //inputs float as rising step//
+ 
+    for (x = nrad; x <= mrad; x += step) {
+        //rises step by step//
+        printf("%f ", x);
+        printf("%f ", x * x * M_PI);
+        printf("%f", 2 * x * M_PI); 
+        printf("\n");
+        //prints solution//
+    }
+ 
+    return 0;
+}

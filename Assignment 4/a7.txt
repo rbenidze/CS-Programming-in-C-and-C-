@@ -1,0 +1,53 @@
+/*
+    CH-230-A
+    a4.p7.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+ 
+//function prints the values in a matrix//
+void matrix(int arr[30][30], int n) {
+    int i; 
+    int m;
+    printf("The entered matrix is:\n");
+    
+    for (i = 0; i < n; i++) {
+        for (m = 0; m < n; m++)
+        printf("%d ", arr[i][m]);
+        printf("\n"); // next row //
+    }
+}
+//function prints values under the main diagonal//
+void diag(int arr[30][30], int n) {
+    int i; 
+    int m;
+    printf("Under the main diagonal:\n");
+    for (i = 0; i < n; i++)
+        for (m = 0; m < n; m++)
+ // if m is smaller than i then that value is under the main diagonal//
+            if (m < i)
+                printf("%d ", arr[i][m]);
+    printf("\n");
+}
+ 
+int main() {
+    // declaration
+    int arr[30][30];
+    int n;
+    int i;
+    int m;
+    //input of amount of rows and columns//
+    scanf("%d", &n);
+    //input of every value in the matrix//
+    for (i = 0; i < n; i++)
+    for (m = 0; m < n; m++)
+    scanf("%d", &arr[i][m]);
+ 
+    // calling the functions
+    matrix(arr, n);
+    diag(arr, n);
+ 
+    return 0;
+}

@@ -1,0 +1,49 @@
+/*
+    CH-230-A
+    a4.p6.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+#include <stdlib.h>
+ 
+void greatest2(int arr[], int n) {
+    int i = 0;
+    // giving max1 and max2 the first value of the array//
+    int a = arr[i];
+    int b = arr[i];
+ 
+    for (i = 1; i < n; i++) { //iterate through array//
+        if (arr[i] > a) {
+            b = a;
+            a = arr[i];
+        }
+        // if value > max2 then max2 becomes second biggest//
+        else if (arr[i] > b) {
+            b = arr[i];
+        }
+    }
+    //prints results//
+    printf("two greatest values: %d and %d\n", a, b);
+}
+ 
+int main() {
+    // declare and input n//
+    int n;
+    scanf("%d", &n);
+    int* dyn_array; //memory allocation//
+    dyn_array = (int*)malloc(sizeof(int) * n);
+ 
+    if (dyn_array == NULL)
+        exit(1);
+ 
+    //input of values in array//
+    for (int i = 0; i < n; i++)
+        scanf("%d", &dyn_array[i]);
+    greatest2(dyn_array, n);
+ 
+    free(dyn_array); // releases the memory //
+ 
+    return 0;
+}

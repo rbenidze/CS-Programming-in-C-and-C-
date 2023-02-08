@@ -1,0 +1,40 @@
+/*
+    CH-230-A
+    a4.p10.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+#include <math.h>
+ 
+void proddivpowinv(float a, float b, float* prod,
+    float* div, float* pwr, float* invb) {
+    // computing results//
+    *prod = a * b;
+    *div = a / b;
+    *pwr = pow(a, b); 
+    *invb = 1 / b;
+}
+ 
+int main() {
+    //declaration and input of a and b//
+    float a;
+    float b;
+    scanf("%f", &a);
+    scanf("%f", &b);
+ 
+    float prod;
+    float div;
+    float pwr;
+    float invb;
+    proddivpowinv(a, b, &prod, &div, &pwr, &invb);
+ 
+    // prints results// 
+    printf("product: %f\n", prod);
+    printf("division: %f\n", div);
+    printf("a to the power of b: %f\n", pwr);
+    printf("inverse of b: %f", invb);
+ 
+    return 0;
+}

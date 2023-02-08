@@ -1,0 +1,75 @@
+/*
+    CH-230-A
+    a4.p3.c
+    Revaz Benidze
+    rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+#include <math.h>
+float geometric_mean(float arr[], int num) {
+    // calculates geometric mean of the numbers//
+    float product = 1;
+    for (int i = 0; i < num; i++) {
+        product *= arr[i];
+    }
+    return pow(product, (float)1 / num);
+}
+float highest_number(float arr[], int num) {
+    // calculates the highest number in an array//
+    float highest = arr[0];
+    for (int i = 1; i < num; i++) {
+        if (arr[i] > highest) {
+        highest = arr[i];
+        }
+    }
+    return highest;
+}
+float smallest_number(float arr[], int num) {
+    // calculates the smallest number of the numbers in an array//
+    float smallest = arr[0];
+    for (int i = 1; i < num; i++) {
+        if (arr[i] < smallest) {
+            smallest = arr[i];
+        }
+    }
+    return smallest;
+}
+float sum(float arr[], int num) {
+    //calculates sum of the numbers in an array//
+    float sum = 0;
+    for (int i = 0; i < num; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+int main() {
+    float numbers[15];
+    float check_number;
+    int i;
+    for (i = 0; i < 15; i++) {
+        scanf("%f", &check_number);
+        if (check_number < 0) {
+            break;
+        }
+        numbers[i] = check_number;
+    }
+    char c;
+    scanf(" %c", &c); //reads the character from the keyboard//
+    switch (c) {
+    // executes one of four characters//
+    case 'm':
+        printf("%f\n", geometric_mean(numbers, i));
+        break;
+    case 'h':
+        printf("%f\n", highest_number(numbers, i));
+        break;
+    case 'l':
+        printf("%f\n", smallest_number(numbers, i));
+        break;
+    case 's':
+        printf("%f\n", sum(numbers, i));
+        break;
+    }
+    return 0;
+}
