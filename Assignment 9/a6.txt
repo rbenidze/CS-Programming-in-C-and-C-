@@ -1,0 +1,53 @@
+/*
+CH-230-A
+a9_p6.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+#include <iostream>
+#include <cmath>
+using namespace std;
+//determines and returns the first positive and even value//
+int myfirst(int arr[]) {
+    for (int i = 0; i < 5; i++) {
+        if (arr[i] > 0 && arr[i] % 2 == 0) {
+            return arr[i];
+        }
+    }
+    return -1;
+}
+//function determines and returns the first negative element//
+double myfirst(double arr[]) {
+    for (int i = 0; i < 5; i++) {
+        if (arr[i] < 0 && arr[i] - (int)arr[i] == 0) {
+            return arr[i];
+        }
+    }
+    return -1.1;
+}
+ 
+//function determines and returns the first element which is a consonant//
+char myfirst(char arr[]) {
+    for (int i = 0; i < 5; i++) {
+        if (('A' <= arr[i] && arr[i] <= 'Z') || ('a' <= arr[i] && arr[i] <= 'z')) {
+            if (arr[i] != 'A' && arr[i] != 'E' && arr[i] != 'I' && arr[i] != 'O'
+                && arr[i] != 'U' && arr[i] != 'a' && arr[i] != 'e'
+                && arr[i] != 'i' && arr[i] != 'o' && arr[i] != 'u') {
+                return arr[i];
+            }
+        }
+    }
+    return 'O';
+}
+ 
+ 
+int main() {
+    //decleration and output//
+    int arr1[5] = { 3 , 6 , 7 , 8 , 10 };
+    char arr2[5] = { 'a' , 's' , 'm' , 'k' , 'l' };
+    double arr3[5] = { 1.268 , 3.514 , 1.565 , 8.356 , 4.341 };
+    cout << myfirst(arr1) << endl;
+    cout << myfirst(arr2) << endl;
+    cout << myfirst(arr3) << endl;
+    return 0;
+}

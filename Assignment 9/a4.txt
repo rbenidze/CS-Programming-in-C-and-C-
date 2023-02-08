@@ -1,0 +1,39 @@
+/*
+CH-230-A
+a9_p4.cpp
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+#include <iostream>
+#include <string>
+using namespace std;
+//create functions//
+int mycount(int a, int b) 
+{
+    return b - a;
+ 
+}
+int mycount(char s, string mystring)
+{
+    int n = 0;
+    //use .length to see the length of the string//
+    for (int i = 0; i < (int)mystring.length(); i++) {
+        if (mystring[i] == s)
+            n++;
+    }
+    return n;
+}
+int main() {
+    int a, b;
+    char s;
+    cin >> a;
+    cin >> b;
+    cout << " Difference is: " << mycount(a, b) << endl;
+    string str;
+    getchar();
+    getline(cin, str);
+    cin >> s;
+    cout << " Occurance of " << s << " is: " << mycount(s, str) << endl;
+ 
+    return 0;
+}

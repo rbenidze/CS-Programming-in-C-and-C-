@@ -1,0 +1,25 @@
+/*
+CH-230-A
+a9 p3.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+#include <iostream>
+#include <string>
+using namespace std;
+ 
+float absx(float x) {
+    //function to return absolute value//
+    if (x < 0)
+        return (-x);
+    else
+        return x;
+}
+//main function//
+int main()
+{
+    float x;
+    cin >> x;
+    cout << "abs value of " << x << " is: " << absx(x) << endl;
+    return 0;
+}

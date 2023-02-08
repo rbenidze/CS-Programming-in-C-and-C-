@@ -1,0 +1,17 @@
+/*
+CH-230-A
+a9 p1.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string mystring;
+    mystring = "Enter your country of origin: ";
+    cout << mystring;
+    getline(cin, mystring);
+    cout << "Your country of origin is: " << mystring << "\n";
+    return 0;
+}

@@ -1,0 +1,51 @@
+/*
+CH-230-A
+a9_p8.cpp
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+ 
+void subtract_max(int* arr, int n) {
+    //find max value in array//
+    int i;
+    int max = arr[0];
+    for (i = 1; i < n; i++) {
+        if (arr[i] > max)
+            max = arr[i];
+    }
+    //substruct max value from array//
+    for (int i = 0; i < n; i++) {
+        arr[i] = max - arr[i];
+    }
+}
+//dealocate memory//
+    void deallocate(int* arr) {
+        free(arr);
+    }
+ 
+    int main() {
+        int i;
+        int n;
+        cin >> n;
+ 
+        //dynamically allocate array//
+        int* arr;
+        arr = (int*)malloc(sizeof(int) * n);
+        if (arr == NULL)
+            exit(1);
+        for (i = 0; i < n; i++)
+            cin >> arr[i];
+ 
+        //input results//
+        cout << "numbers afte substraction are:" << endl;
+        subtract_max(arr, n);
+        for (i = 0; i < n; i++)
+            cout << arr[i] << endl;
+ 
+        deallocate(arr);
+ 
+        return 0;
+    }

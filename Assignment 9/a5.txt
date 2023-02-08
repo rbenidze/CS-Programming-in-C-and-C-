@@ -1,0 +1,56 @@
+/*
+CH-230-A
+a9_p5.cpp
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <string>
+using namespace std;
+int main() {
+    int die;
+    string s;
+    int randomNumber;
+    int count = 1;
+    int number;
+    string mystr;
+    //creating conversation//
+    cout << "What's your name? ";
+    getline(cin, mystr);
+    cout << "Hello " << mystr << ".\n";
+    cout << "Do you want to play a little game? " << endl;
+    cout << "Type yes to continue:";
+    getline(cin, mystr);
+    if (mystr == "yes") {
+        cout << "Great!! (=^ェ^=) " << endl;
+    }
+    else if (mystr == "no") {
+        cout << "Well see you next time! ಠ_ಠ" << endl;
+        return 0;
+    }
+ 
+    cout << "Please type your guess:";
+ 
+    srand(static_cast <unsigned int>(time(0)));
+    randomNumber = rand();
+    die = (randomNumber % 20) + 1;
+ 
+    while (cin >> number, number != die) {
+        //different outputs depends on guess//
+        if (number < die)
+            cout << "your number is smaller" << endl;
+        else if (number > die)
+            cout << "your number is bigger" << endl;
+        //guess again//
+        count++;
+ 
+        cout << "your guess #" << count << ": ";
+    }
+ 
+    cout << "Congratulations you guessed correctly!";
+ 
+    return 0;
+ 
+}
