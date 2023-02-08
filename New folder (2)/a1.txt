@@ -1,0 +1,51 @@
+/*
+CH-230-A
+a2p1.c
+Revaz Benidze 
+rbenidze-university.de
+*/
+ 
+ 
+ 
+ 
+ 
+#include <stdio.h>
+ 
+int main(){
+    double A1; // create dobules //
+    double A2;
+ 
+    int B1; // create integers //
+    int B2;
+ 
+    char C1; // create characters //
+    char C2;
+ 
+    scanf("%lf", &A1);  // inputing first and second doubles //
+    scanf("%lf", &A2);
+ 
+    printf("sum of doubles=%lf\n", A1+A2); //printing sum difference and square of doubles //
+    printf("difference of doubles=%lf\n", A1-A2);
+    printf("square=%lf\n", A1*A1);
+ 
+    scanf("%d", &B1);  // scan of integer 1 //
+    scanf("%d", &B2);  // scan of integer 2 //
+ 
+    printf("sum of integers=%d\n", B1+B2);        //sum of integers//
+    printf("product of integers=%d\n", B1*B2);    // profuct of integers//
+ 
+    getchar(); //makes scanf miss newline from previous printf//
+    scanf("%c", &C1); //gets character // 
+    getchar(); //makes scanf miss newline//
+    scanf("%c", &C2); //gets character //
+ 
+    
+    printf("sum of chars=%d\n",  (int)C1+C2); //print sum of char as int//
+    printf("product of chars=%d\n", (int)C1*C2); //print product of char as int//
+ 
+    printf("sum of chars=%c\n", (char)C1+C2); //print sum of char//
+    printf("product of chars=%c\n", (char)C1*C2);  //print product of char as int//
+    
+    return 0;
+ 
+}

@@ -1,0 +1,21 @@
+/*
+CH-230-A
+a2p2.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+ 
+int main(){
+    char a; //function recieves character//
+    scanf("%c", &a);  
+    printf("character=%c\n", a); //print character values //
+    printf("decimal=%d\n", a); //decimal//
+    printf("octal=%o\n", a); // octal//
+    printf("hexadecimal=%x\n", a);//hexadecimal//
+    return 0;
+ 
+ 
+ 
+}

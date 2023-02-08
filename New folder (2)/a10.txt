@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main(){
+    int days = 0;
+    int curday = 2;
+    while(days <=0){//searchis until we have a valid input//
+     scanf("%d", &days);
+    }
+    printf("1 day = 24 hours\n");//prints first day//
+    while(curday <= days){//loop for days after first
+    printf("%d days = %d hours\n", curday, curday*24);
+    curday++;//adds days//
+    }
+    return 0;
+}

@@ -1,0 +1,21 @@
+/*
+CH-230-A
+a2p3.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+ 
+ 
+#include <stdio.h>
+ 
+int main(){
+    int weeks;
+    int days;
+    int hours; //uses weeks days and hours //
+    scanf("%d", &weeks); //take input for weeks //
+    scanf("%d", &days); // take input for days//
+    scanf("%d", &hours); // take input for hours
+    printf("%d\n", hours+weeks*7*24+days*24); //print the result//
+    return 0;
+}

@@ -1,0 +1,22 @@
+/*
+CH-230-A
+a2p9.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+ 
+ 
+#include <stdio.h>
+int main() {
+    char c;
+    scanf("%c", &c); // reads the character from the keyboard//
+    if (c >= 48 && c <= 57) //check if input is a digit//
+    printf("%c is a digit\n", c);
+    else if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))////check if input is a letter//
+    printf("%c is a letter\n", c);
+    else
+    printf("%c is some other symbol\n", c);
+    // checks if the character is a digit, a letter or some other symbol and prints the result
+    return 0;
+}
