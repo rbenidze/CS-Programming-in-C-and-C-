@@ -1,0 +1,22 @@
+/*
+CH-230-A
+a3 p1.c 
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+int main() {
+    float x;
+    int n;
+    scanf("%f", &x); // reads  float from the keyboard//    
+    scanf("%d", &n); // reads integer from the keyboard//
+    while (n <= 0) {
+        printf("Input is invalid, reenter value\n");
+        scanf("%d", &n);
+    } // checks validity of the integer and asks to reenter the value if it's invalid
+    for (int i = 1; i <= n; i++)
+        printf("%f\n", x);
+    // prints the float x n times
+    return 0;
+}

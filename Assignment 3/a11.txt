@@ -1,0 +1,67 @@
+/*
+CH-230-A
+a3 p11.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+#include <string.h>
+ 
+int main()
+{
+    char one[50];
+    char two[50]; 
+    char tmp[50];
+ 
+    fgets(one, sizeof(one), stdin);
+    fgets(two, sizeof(two), stdin);
+ 
+    //remove newline//
+    one[strlen(one) - 1] = '\0';
+    two[strlen(two) - 1] = '\0';
+ 
+    //print the lengths
+    printf("length1=%zu\n", strlen(one));
+    printf("length2=%zu\n", strlen(two));
+    //concat one and twp into tmp//
+    strcpy(tmp, one);
+    strcat(tmp, two);
+    printf("concatenation=%s\n", tmp);
+    //string where two will be copied to//
+    char copy[50];
+    //use the copy function//
+    strcpy(copy, two);
+    printf("copy=%s\n", copy);
+    //compare strings//
+    int cmp = strcmp(one, two);
+ 
+    if (cmp < 0)
+    {
+        printf("one is smaller than two\n");
+    }
+    else if (cmp > 0)
+    {
+        printf("one is larger than two\n");
+    }
+    else
+    {
+        printf("one is equal to two\n");
+    }
+ 
+    char c;
+    scanf(" %c", &c);
+ 
+    //find the position of c//
+    char* position = strchr(two, c);
+ 
+    //if c is not in string then position is NULL//
+    if (position == NULL)
+    {
+        printf("The character is not in the string\n");
+    }
+    else
+    {
+        printf("position=%ld\n", position - two);
+    }
+}

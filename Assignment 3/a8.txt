@@ -1,0 +1,36 @@
+/*
+CH-230-A
+a3 p8.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+ 
+float sum(float arr[10], int n) {
+    float temp = 0;
+    for (int i = 0; i <= n; i++) {
+      //sum up all values//
+        temp += arr[i];
+    }
+    return temp;
+}
+float avg(float sum_, int n) {
+    return sum_ / n;//calculate avarage//
+}
+ 
+int main() {
+    float num;
+    float nums[10];
+    int n;
+    for (n = 0; n < 10; n++) {
+    scanf("%f", &num);
+    if (num == -99.0)
+    break; //break the loop on -99//
+    nums[n] = num;
+    }
+    float sum_ = sum(nums, n);
+    printf("%f\n", sum_);
+    printf("%f\n", avg(sum_, n));
+    return 0;
+}

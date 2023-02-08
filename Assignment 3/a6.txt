@@ -1,0 +1,24 @@
+/*
+CH-230-A
+a3 p6.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+float to_pounds(int kg, int g) {
+    //converts kilograms and grams to pounds//
+    return (kg + (float)g / 1000) * 2.2;
+}
+int main() {
+    int kilograms;
+    int grams;
+    scanf("%d", &kilograms);
+    //reads killograms from the keyboard//
+    scanf("%d", &grams);
+    //reads grams from the keyboard//
+    float pounds;
+    pounds = to_pounds(kilograms, grams);
+    printf("Result of conversion: %f\n", pounds);
+    return 0;
+}

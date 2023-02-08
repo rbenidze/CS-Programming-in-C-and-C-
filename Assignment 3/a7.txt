@@ -1,0 +1,31 @@
+/*
+CH-230-A
+a3 p7.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+void print_form(int n, int m, char c) {
+    // prints trapezoid//
+    for (int j = 0; j < n; j++) {
+        for (int i = 0; i < m; i++) { // prints the line of characters//
+            printf("%c", c);
+        }
+        printf("\n");
+        m++;
+        /*
+        Switches to the next line and increases the number of characters
+        in the next line by 1
+        */
+    }
+}
+int main() {
+    int n, m;
+    char c;
+    scanf("%d", &n);
+    scanf("%d", &m);
+    scanf(" %c", &c);//reads variables from the keyboard//
+    print_form(n, m, c);
+    return 0;
+}

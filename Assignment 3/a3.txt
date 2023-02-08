@@ -1,0 +1,22 @@
+/*
+CH-230-A
+a3 p1.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+#include <stdio.h>
+float convert(int cm) { //function converts cm into km//
+    return (float)cm / 100000;
+}
+ 
+int main() {
+    int length;
+    scanf("%d", &length);
+    printf("Result of conversion: %f\n", convert(length)); 
+    //prints a result of converted length//
+    return 0;
+    
+ 
+ 
+}

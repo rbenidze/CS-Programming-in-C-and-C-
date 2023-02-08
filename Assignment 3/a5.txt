@@ -1,0 +1,46 @@
+/*
+CH-230-A
+a3 p5.c
+Revaz Benidze
+rbenidze@jacobs-university.de
+*/
+ 
+ 
+ 
+#include <stdio.h>
+int main() {
+    char c;
+    scanf("%c", &c);
+    int n;
+    scanf("%d", &n);
+    double temperature;
+    double temperatures[100];
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        scanf("%lf", &temperature);
+        temperatures[i] = temperature; // adds inputed temperature to an array
+        sum += temperature;
+    }
+    switch (c) {
+    case 's':
+    // if entered character is s prints the sum of the temperatures//
+    printf("%lf\n", sum);
+    break;
+    case 'p':
+    // if entered character is s prints the list of the temperatures//
+    for (int i = 0; i < n; i++) {
+    printf("%lf\n", temperatures[i]);
+    }
+    break;
+    case 't':
+    //if entered character is t prints the list of the temperatures in Farenheit//
+    for (int i = 0; i < n; i++) {
+    printf("%lf\n", temperatures[i] * 9 / 5 + 32);
+    }
+    break;
+    default:
+    //if entered character is anything else prints the arithmetic value of the temperatures//
+        printf("%lf\n", sum / n);
+    }
+    return 0;
+}
